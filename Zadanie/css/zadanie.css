@@ -1,0 +1,42 @@
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+}
+th, td {
+padding: 10px;
+}
+h1{
+background-color: rgb(6,55,20);}
+h3 + table {
+    text-align: center;}
+dl > dt {
+    text-align: left;}
+h1 + p  {
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6em;}
+h1  {
+    font-size: 50px;}
+h3  {
+background-color: #dddddd;
+color:#666666;
+text-shadow: 1px 1px 3px #666666;}
+a:link {
+    color: blue;
+    text-decoration: none;}
+a:visited   {
+    color: black;}
+h2 {
+    text-transform: uppercase;}
+th {
+    color: red;}
+table{
+    border: 5px;
+    color:black}
+p{
+    background-color:bisque;
+    text-indent: 20px
+}
+dt::first-letter{
+    font-weight: bold;
+}
+/*Ustawiam kolor tła paragrafów na beżowy.*/
