@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monit</title>
+</head>
+<body>
+    <div class="powiadomienie-o-ciasteczkach">
+        <div class="tekst">Komunikat cookies</div>
+        <a href="#" class="zaakceptuj">OK, zamknij</a>
+    </div>
+    
+    <script>
+    function ustawienie(nazwa, wartosc, dni)    {
+        var date = new Date()
+        data.setTime(date.getTime() + (dni*24*60*60*1000));
+        var wygasa = "; wygasa=" + date.toGMTString();
+        document.cookie = nazwa+"="+wartosc+wygasa+"; path=/";
+    }
+
+    function ciasteczka(nazwa1)   {
+        var nazwa2 = nazwa1 + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i < ca.length; i++)    {
+            var e = ca[i];
+            while (e.charAt(0)) == '  ') e = e.substring(1, e.length);
+            if (e.indexOf(nazwa2) == 0) return e.substring(nazwa2.length, e.length);
+        }
+        return null;
+    }
+
+    var pasek = document.getElementsByClassName("powiadomienie-o-ciasteczkach")[0];
+    var Akceptuj = pasek.getElementsByClassName("akceptuj-ciasteczka")[0];
+
+    window.onload = sprawdzenie;
+
+    function sprawdzenie()  {
+        if (ciasteczka('ciasteczka-zaakceptowane') != 'P')  {
+            pasek.style.display = "block";
+        }
+    }
+
+    Akceptuj.onclick = function(h){
+        h.preventDefault();
+        pasek.style.display = "none";
+        ustawienie('ciasteczka-zaakceptowane', 'P', 365);
+    };
+    </script>
+</body>
+</html>
