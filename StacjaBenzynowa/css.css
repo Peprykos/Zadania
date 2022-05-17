@@ -1,0 +1,21 @@
+body    {
+    background-color: darkgreen;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(255,255,200);
+}
+h1  {
+    font-weight: bold;
+    font-style: oblique;
+    text-decoration: underline;
+    font-size: 100px;
+}
+div    {
+    font-size: 25px;
+}
+#litry  {
+    font-size: 25px;
+}
+#wynik  {
+    font-size: 30px;
+}

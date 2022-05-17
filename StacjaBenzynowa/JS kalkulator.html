@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <link href="css.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <h1>Stacja Paliw</h1>
+    <div>
+        <input type="radio" id="Ropa" name="Paliwo" value="Ropa">
+        <label for="Ropa">Ropa - Cena: 7,50 zł</label>
+    </div>
+
+    <div>
+        <input type="radio" id="Benzyna" name="Paliwo" value="Benzyna">
+        <label for="Benzyna">Benzyna - Cena: 6,70 zł</label>
+    </div>
+    <div>
+        <input type="number" id="litry" name="Paliwo" value="litry"><br>
+        <label for="litry">Ile litrów</label>
+    </div>
+    <div>
+    <button id="przycisk" onclick="liczenie()">POLICZ</button>
+    </div>
+    <div>
+        <input type="number" id="wynik" name="Paliwo" value="wynik" readonly>
+    </div>
+    <script>
+        function liczenie() {
+        var Cena_Ropy = 7.5;
+        var Cena_Benzyny = 6.7;
+        if (document.getElementById("Benzyna").checked == true)   {
+            a = Cena_Benzyny * parseFloat(document.getElementById("litry").value);
+            document.getElementById("wynik").value = a;
+        }
+        else if (document.getElementById("Ropa").checked == true)    {
+            b = Cena_Ropy * parseFloat(document.getElementById("litry").value);
+            document.getElementById("wynik").value = b;
+        }
+        }
+    </script>
+</body>
+</html>
