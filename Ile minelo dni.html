@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ile_minelo_dni</title>
+    <link href="css.css" typex="text/css" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <label for="policz">Data:</label><br>
+        <input type="date" id="data" name="data">
+    </div>
+    <div>
+        <button id="przycisk" onclick="policz()">Wylicz</button>
+    </div>
+    <div>
+        <label for="wynik">Minelo tyle dni</label><br>
+        <input type="tekst" id="wynik" name="wynik" readonly>
+    </div>
+    <script>
+        function policz()   {
+            var dzisiaj = new Date();
+            var data = document.getElementById("data").valueAsDate;
+            document.getElementById("wynik").value = Math.floor((dzisiaj.getTime() - data.getTime()) /1000 / 60 / 60 / 24);
+        }
+    </script>
+</body>
+</html>
