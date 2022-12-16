@@ -1,0 +1,57 @@
+using System.Xml;
+using System.Net;
+using System.Globalization;
+
+private void convertEUR(na click)
+{
+string rateString = rate.Text;
+float r = Convert.ToSingle(rateString);
+float pln = 0;
+if(valuePLN.Text != "")
+{
+	float pln = Convert.ToSingle(valuePLN.Text);
+}
+
+float eur = pln / r;
+eur = (float)Math.round(eur, 2);
+resultEUR.Text = eur.ToString() + " €";
+}
+
+private void convertPLN(na click)
+{
+string rateString = rate.Text;
+float r = Convert.ToSingle(rateString);
+float eur = Convert.ToSingle(valueEUR.Text);
+float pln = eur * r;
+pln = (float)Math.Round(pln, 2);
+resultPLN.Text = pln.ToString() + " PLN";
+}
+
+private void button1_Click(na click)
+{
+	Application.Exit();
+}
+
+private void getExchange(na load calosci)
+{
+	string url = "https://api.nbp.pl/api/exchangerates/tables/A/?format=xml";
+	XmlDocument = new XmlDocument();
+	string xmlString;
+	xml.load(url)
+	XmlNodeList currencyList = xml.GetElementsByTagName("rate");
+	double eurRate = 0;
+	for (int i = 0; i < currencyList.Count; i++)
+	{
+		string currencyName = currencyList[i].ChildNodes[0].InnerText;
+		string code = currencyList[i].ChildNodes[1].InnerText;
+		double exchangeRate = Convert.ToDouble(currencyList[i].ChildNodes[2].InnerText, CultureInfo.InvarientCulture);
+		
+		if(code == "EUR")
+		{
+			eurRate = exchangeRate;
+			break;
+		}
+	}
+	rate.Text = eurRate.ToString();
+	
+}
